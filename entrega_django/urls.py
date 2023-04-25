@@ -19,7 +19,7 @@ from django.urls import path
 from hola_mundo.views import (mostrar_template, mostrar_usuarios,
  mostrar_entregas, mostrar_stock,cargar_usuario, buscar_usuario,cargar_entregas
  ,cargar_stock)
-from Hamgurga.views import index,PostList,PostDetail, PostCreate,PostUpdate, PostDelete, SignUp
+from Hamgurga.views import (index,PostList,PostDetail, PostCreate,PostUpdate, PostDelete, SignUp,Login, Logout)
 
 urlpatterns = [
     path('',index, name="index"),
@@ -37,6 +37,8 @@ urlpatterns = [
     path('post/crear',PostCreate.as_view(), name="Post-Create"),
     path('post/<pk>/actualizar',PostUpdate.as_view(), name="Post-Update"),
     path('post/<pk>/borrar',PostDelete.as_view(), name="Post-Delete"),
-    path('signup/',SignUp.as_view(), name="Signup"),
+    path('signup',SignUp.as_view(), name="Signup"),
+    path('login',Login.as_view(), name="Login"),
+    path('logout',Logout.as_view(), name="Logout"),
 
 ]

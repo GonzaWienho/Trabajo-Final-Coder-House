@@ -60,14 +60,23 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'Post-List' %}">Post</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'Post-List' %}">Lista de Hamburguesa</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'Post-Create' %}">Postear</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'Formulario-Entregas' %}">Entregas</a>
+            <a class="nav-link" href="{% url 'Logout' %}"> {{user.username}} | Logout</a>
+          </li>
+        {% else %}  
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Login' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="https://getbootstrap.com/docs/5.0/examples/carousel/#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a class="nav-link" href="{% url 'Signup' %}">Registrarme</a>
           </li>
+        {% endif %}
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
