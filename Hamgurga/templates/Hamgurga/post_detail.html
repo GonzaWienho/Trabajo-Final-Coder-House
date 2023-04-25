@@ -1,8 +1,12 @@
 {% extends "Hamgurga/base.html"%}
-{%block main%}
- <p>
- {{object}}
- <br>
- <a href="{% url 'Post-List'%}">volver</a>
+{% block main %}
+<p>
+    <h1>{{object.heading}}</h1>
+    <br>
+    <img src="{{ object.imagen.url }}" width="320px" height="100%">
+    <br>
+    {{object.description}}
+    <br>
+    <a href="{% url 'Post-List' %}"> volver</a>
 </p>
-{% endblock%}
+{% endblock %}

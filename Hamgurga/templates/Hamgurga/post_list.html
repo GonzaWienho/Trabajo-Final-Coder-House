@@ -7,7 +7,9 @@
     <li>
         {{Post}} 
         <a href="{% url 'Post-Detail' Post.id %}">Detalle</a>
+
         {% if user.is_authenticated and post.publisher == user %}
+        
         <a href="{% url 'Post-Update' Post.id %}" > Actualizar</a>
         <a href="{% url 'Post-Delete' Post.id %}" > Borrar</a>
         {% endif %}

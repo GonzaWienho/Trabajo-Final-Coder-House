@@ -17,12 +17,12 @@ class PostList(ListView):
 class PostDetail(DetailView):
     model = Post
 
-class PostCreate(LoginRequiredMixin,UserPassesTestMixin,CreateView):
+class PostCreate(LoginRequiredMixin,CreateView):
     model = Post
     success_url = reverse_lazy("Post-List")
     fields = '__all__'
 
-class PostUpdate(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
+class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     success_url = reverse_lazy("Post-list")
     fields = '__all__'
@@ -31,6 +31,10 @@ class PostUpdate(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
         user_id = self.request.user.id
         post_id = self.kwargs.get('pk')
         return Post.objects.filter(publisher=user_id, id=post_id).exists()
+    
+    def handle_no_permission(self):
+        return render(self.request, "Hamgurga/not_found.html")
+
 
 class PostDelete(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
     model = Post
@@ -50,7 +54,7 @@ class SignUp(CreateView):
     success_url = reverse_lazy("Post-List")
 
 class Login(LoginView):
-    next_page = reverse_lazy("Post-list")
+    next_page = reverse_lazy("Post-List")
 
 class Logout(LogoutView):
     template_name = 'registration/logout.html'
