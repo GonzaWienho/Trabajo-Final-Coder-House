@@ -1,0 +1,11 @@
+{% extends "Hamgurga/base.html" %}
+
+{% block main %}
+ {% block formulario %}
+ <form action="" method="POST">
+   {% csrf_token %}
+   {{form.as_p}}
+   <input type="submit" value="Agregar">
+ </form>
+ {% endblock %}
+{% endblock %}

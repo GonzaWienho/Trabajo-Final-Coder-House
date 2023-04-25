@@ -1,0 +1,14 @@
+{% extends "hola_mundo/base.html"%}
+
+{% block herencia %}
+{% block formulario %}  {% endblock %}
+   Holandaaa
+   <ul>
+    {% for Usuarios in index %}
+      <li>
+       {{Usuarios}}
+      </li>
+    {% endfor%}
+   </ul>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "Hamgurga/base.html"%}
+{%block main%}
+<br>
+
+<ul>
+    {%  for Post in object_list %}
+    <li>
+        {{Post}} 
+        <a href="{% url 'Post-Detail' Post.id %}">Detalle</a>
+        <a href="{% url 'Post-Update' Post.id %}" > Actualizar</a>
+        <a href="{% url 'Post-Delete' Post.id %}" > Borrar</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock%}

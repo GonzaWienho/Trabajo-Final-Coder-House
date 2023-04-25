@@ -1,0 +1,24 @@
+{% extends "hola_mundo/base.html"%}
+
+{% block herencia %}
+   Honduraaas
+   Que habana haciendo
+   <form>
+    <p>
+      <label for="criterio_nombre">Criterio:</label>
+      <input type="text" name="criterio_nombre" maxlength="100" required=""
+      id="criterio_nombre">
+    </p>
+    <p>
+      <input type="submit" value="Buscar">
+    </p>
+   </form>
+<ul>
+ {% for Usuarios in object_list %}
+   <li>
+     {{Usuarios}}
+   </li>
+ {% endfor%}
+   </ul>
+
+{% endblock %}

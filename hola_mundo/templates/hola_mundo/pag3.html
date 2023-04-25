@@ -1,0 +1,13 @@
+{% extends "hola_mundo/base.html"%}
+
+{% block herencia %}
+{% block formulario %}  {% endblock %}
+    <h1>Si no es entragas ni Usuarios xd </h1>
+    <ul>
+        {% for stock_local in pag3 %}
+        <li>
+           {{stock_local}}
+        </li>
+        {% endfor%}
+        </ul>
+{% endblock %}

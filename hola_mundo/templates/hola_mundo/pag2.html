@@ -1,0 +1,13 @@
+{% extends "hola_mundo/base.html"%}
+
+{% block herencia %}
+{% block formulario %}  {% endblock %}
+    <h1>Esto es para entregas</h1>
+    <ul>
+        {% for lista_de_entregas in pag2 %}
+        <li>
+           {{lista_de_entregas}}
+        </li>
+        {% endfor%}
+        </ul>
+ {% endblock %}
